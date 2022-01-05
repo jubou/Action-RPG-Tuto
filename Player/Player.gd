@@ -19,10 +19,12 @@ var roll_vector = input_vector
 onready var animationPlayer = $AnimationPlayer
 onready var animationTree = $AnimationTree
 onready var animationState = animationTree.get("parameters/playback")
+onready var swordHitbox = $HitboxPivot/SwordHitbox
 
 func _ready():
 	set_animations()
 	animationTree.active = true
+	swordHitbox.knockback_vector = roll_vector
 
 func _physics_process(delta):
 	match state:
@@ -49,6 +51,7 @@ func move_state(delta):
 	
 	if input_vector != Vector2.ZERO:
 		roll_vector = input_vector
+		swordHitbox.knockback_vector = input_vector
 		set_animations()
 		animationState.travel("Run")
 		velocity = velocity.move_toward(input_vector * MAX_SPEED, ACCELERATION * delta)
@@ -79,7 +82,7 @@ func move():
 	
 
 func roll_animation_finished():
-	velocity *= 0.6 # Vector2.ZERO # To prevent boot sliding
+	velocity *= 0.6 # Vector2.ZERO # To prevent butt sliding
 	state = MOVE
 
 func attack_animation_finished():
