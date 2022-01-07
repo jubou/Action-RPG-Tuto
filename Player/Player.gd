@@ -25,6 +25,7 @@ onready var swordHitbox = $HitboxPivot/SwordHitbox
 onready var hurtbox = $Hurtbox
 
 func _ready():
+	randomize()
 	stats.connect("no_health", self, "queue_free")
 	set_animations()
 	animationTree.active = true

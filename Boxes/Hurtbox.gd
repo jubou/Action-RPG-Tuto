@@ -35,6 +35,7 @@ func _on_Timer_timeout():
 
 func _on_Hurtbox_invincibility_started():
 	set_deferred("monitorable", false) # monitorable is blockd during _physics_process
+	print("Invincibility Started")
 
 func _on_Hurtbox_invincibility_ended():
-	monitorable = true # This happens on a timer, so set_deferred() is no necessary 
+	monitorable = true # This happens on a timer, so set_deferred() is no necessary
