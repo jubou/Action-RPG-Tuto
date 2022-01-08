@@ -11,7 +11,7 @@ signal invincibility_ended
 
 func set_invincible(value):
 	invincible = value  # without self, it won't call the setter (to avoid recursion?)
-	if invincible == true:
+	if invincible:
 		emit_signal("invincibility_started")
 	else:
 		emit_signal("invincibility_ended")
@@ -34,8 +34,7 @@ func _on_Timer_timeout():
 	self.invincible = false  # With self calls the setter
 
 func _on_Hurtbox_invincibility_started():
-	set_deferred("monitorable", false) # monitorable is blockd during _physics_process
-	print("Invincibility Started")
-
+	set_deferred("monitoring", false) # monitorable is blockd during _physics_process
+	
 func _on_Hurtbox_invincibility_ended():
-	monitorable = true # This happens on a timer, so set_deferred() is no necessary
+	monitoring = true # This happens on a timer, so set_deferred() is no necessary
