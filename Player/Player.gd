@@ -6,7 +6,7 @@ export var ROLL_SPEED = 150
 export var FRICTION = 400
 enum { MOVE, ROLL, ATTACK }
 var state = MOVE
-var roll_vector = Vector2.LEFT
+var roll_vector = Vector2.DOWN
 var velocity = Vector2.ZERO
 onready var animationPlayer = $AnimationPlayer
 onready var animationTree = $AnimationTree
