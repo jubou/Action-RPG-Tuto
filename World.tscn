@@ -525,9 +525,14 @@ tile_data = PoolIntArray( -2, 0, 4, -1, 0, 196609, -65536, 0, 196609, -65535, 0,
 
 [node name="Player" parent="YSort" instance=ExtResource( 2 )]
 position = Vector2( 104, 96 )
+ACCELERATION = 500
+MAX_SPEED = 80
+ROLL_SPEED = 120.0
+FRICTION = 500
 
 [node name="Bat" parent="YSort" instance=ExtResource( 7 )]
 position = Vector2( 144, 96 )
+collision_mask = 5
 
 [node name="Bushes" type="YSort" parent="YSort"]
 
