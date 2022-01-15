@@ -15,8 +15,7 @@ func _physics_process(delta) -> void:
 
 
 func _on_Hurtbox_area_entered(area) -> void:
-	print(stats.health)
-	stats.health -= 1
+	stats.health -= area.damage
 	knockback_direction = area.get_parent().global_position.direction_to(global_position)
 	knockback_velocity = knockback_direction * KNOCKBACK_SPEED
 
