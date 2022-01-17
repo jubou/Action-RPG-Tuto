@@ -43,7 +43,6 @@ func _physics_process(delta) -> void:
 			sprite.flip_h = velocity.x < 0
 
 	velocity = move_and_slide(velocity)
-	print(state)
 
 
 func seek_player():
