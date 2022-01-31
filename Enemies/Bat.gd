@@ -13,11 +13,11 @@ enum { IDLE, WANDER, CHASE }
 var knockback_direction := Vector2.ZERO
 var knockback_velocity := Vector2.ZERO
 var velocity := Vector2.ZERO
-
+var state = IDLE
 onready var sprite = $AnimatedSprite
 onready var stats = $Stats
 onready var playerDetectionZone = $PlayerDetectionZone
-var state = IDLE
+onready var hurtbox = $Hurtbox
 
 
 func _physics_process(delta) -> void:
@@ -54,6 +54,7 @@ func _on_Hurtbox_area_entered(area) -> void:
 	stats.health -= area.damage
 	knockback_direction = area.get_parent().global_position.direction_to(global_position)
 	knockback_velocity = knockback_direction * KNOCKBACK_SPEED
+	hurtbox.create_hit_effect()
 
 
 func _on_Stats_no_health():
