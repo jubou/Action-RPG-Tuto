@@ -87,5 +87,5 @@ func roll_animation_finished():
 func _on_Hurtbox_area_entered(area: Area2D):
 	if hurtbox.invincible == false:
 		stats.health -= 1
-		hurtbox.start_invincibility(2)
+		hurtbox.start_invincibility(0.5)
 		hurtbox.create_hit_effect()
